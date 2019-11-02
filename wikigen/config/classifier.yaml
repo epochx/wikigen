@@ -1,0 +1,45 @@
+results_path: ~/results/wikigen/
+
+seed: 2
+
+device: cuda
+verbose: 100
+overwrite: true
+write_mode: BOTH
+
+dataset: Xbox_360_meta
+max_len: 300
+lowercase: true
+src_min_freq: 1
+force_dataset_reload: true
+num_classes: 6
+use_temporal_splits: true
+
+encoder: lstm # bow, lstm, linear
+encoder_embedding_size: 190
+train_encoder_embeddings: true
+use_tag_embeddings: true
+encoder_tag_embedding_size: 10
+
+encoder_hidden_size: 200
+encoder_input_dropout: 0.0
+encoder_dropout: 0.0
+encoder_output_dropout: 0.5
+encoder_num_layers: 1
+bidirectional: true
+aggregator: max
+
+use_message_embeddings: false
+encoder_message_embedding_size: 400
+encoder_message_hidden_size: 200
+
+optim: Adam
+metric: acc
+lr: 0.001
+decay: 0.8
+patience: 5
+clip: 5
+
+epochs: 100
+batch_size: 64
+test_batch_size: 64
